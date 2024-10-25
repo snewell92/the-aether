@@ -1233,6 +1233,54 @@ public class AetherLanguageData extends AetherLanguageProvider {
         this.addProTip("golden_apples", "The leaves of Golden Oak trees occasionally drop Golden Apples.");
 
 
+        this.addConfig("title", "The Aether Configuration");
+        this.addConfig("section.aether.common.toml", "Common Settings");
+        this.addConfig("section.aether.common.toml.title", "The Aether Common Configuration");
+        this.addConfig("section.aether.client.toml", "Client Settings");
+        this.addConfig("section.aether.client.toml.title", "The Aether Client Configuration");
+        this.addConfig("section.aether.server.toml", "Server Settings");
+        this.addConfig("section.aether.server.toml.title", "The Aether Server Configuration");
+
+        this.addConfig("Loot", "Loot");
+        this.addConfig("Loot.tooltip", "Config options that affect the mod's loot");
+        this.addConfig("Loot.button", "Options");
+
+        this.addConfig("Modpack", "Modpack");
+        this.addConfig("Modpack.tooltip", "Config options that may be useful for modpack makers");
+        this.addConfig("Modpack.button", "Options");
+
+        this.addConfig("Multiplayer", "Multiplayer");
+        this.addConfig("Multiplayer.tooltip", "Config options for multiplayer servers");
+        this.addConfig("Multiplayer.button", "Options");
+
+        this.addConfig("Miscellaneous", "Miscellaneous");
+        this.addConfig("Miscellaneous.tooltip", "Config options that are miscellaneous");
+        this.addConfig("Miscellaneous.button", "Options");
+
+        this.addConfig("Gui", "Gui");
+        this.addConfig("Gui.tooltip", "Config options for adjusting the mod's GUIs");
+        this.addConfig("Gui.button", "Options");
+
+        this.addConfig("World Generation", "World Generation");
+        this.addConfig("World Generation.tooltip", "Config options that affect the mod's world generation");
+        this.addConfig("World Generation.button", "Options");
+
+        this.addConfig("Data Pack", "Data Pack");
+        this.addConfig("Data Pack.tooltip", "Config options for enabling certain default data packs");
+        this.addConfig("Data Pack.button", "Options");
+
+        this.addConfig("Gameplay", "Gameplay");
+        this.addConfig("Gameplay.tooltip", "Config options that affect gameplay mechanics in the mod");
+        this.addConfig("Gameplay.button", "Options");
+
+        this.addConfig("Rendering", "Rendering");
+        this.addConfig("Rendering.tooltip", "Config options that change how certain things in the mod are rendered");
+        this.addConfig("Rendering.button", "Options");
+
+        this.addConfig("Audio", "Audio");
+        this.addConfig("Audio.tooltip", "Config options for some audio-related features in the mod");
+        this.addConfig("Audio.button", "Options");
+
         this.addServerConfig("gameplay", "enable_bed_explosions", "Vanilla's beds will explode in the Aether");
         this.addServerConfig("gameplay", "tools_debuff", "Tools that aren't from the Aether will mine Aether blocks slower than tools that are from the Aether");
         this.addServerConfig("gameplay", "edible_ambrosium", "Ambrosium Shards can be eaten to restore a half heart of health");
