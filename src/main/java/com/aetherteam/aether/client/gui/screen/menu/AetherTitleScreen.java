@@ -37,7 +37,6 @@ public class AetherTitleScreen extends TitleScreen implements TitleScreenBehavio
     private static final ResourceLocation PANORAMA_OVERLAY = ResourceLocation.withDefaultNamespace("textures/gui/title/background/panorama_overlay.png");
     private static final ResourceLocation AETHER_LOGO = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/gui/title/aether.png");
     public static final Music MENU = new Music(AetherSoundEvents.MUSIC_MENU, 20, 600, true);
-    private final PanoramaRenderer panorama = new PanoramaRenderer(new CubeMap(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/gui/title/panorama/panorama")));
     private boolean alignedLeft;
     private int rows;
 
@@ -108,7 +107,7 @@ public class AetherTitleScreen extends TitleScreen implements TitleScreenBehavio
         if (this.minecraft != null && titleScreenAccessor.aether$getSplash() == null) {
             titleScreenAccessor.aether$setSplash(this.minecraft.getSplashManager().getSplash());
         }
-        float fadeAmount = TitleScreenBehavior.super.handleFading(guiGraphics, this, titleScreenAccessor, this.panorama, PANORAMA_OVERLAY, partialTicks);
+        float fadeAmount = TitleScreenBehavior.super.handleFading(guiGraphics, this, titleScreenAccessor, PANORAMA, PANORAMA_OVERLAY, partialTicks);
         float scale = getScale(this, this.getMinecraft());
         this.setupLogo(guiGraphics, fadeAmount, scale);
         int roundedFadeAmount = Mth.ceil(fadeAmount * 255.0F) << 24;
