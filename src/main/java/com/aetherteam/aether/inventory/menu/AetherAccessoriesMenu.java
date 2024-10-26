@@ -145,42 +145,42 @@ public class AetherAccessoriesMenu extends InventoryMenu {
             EquipmentSlot equipmentSlot = player.getEquipmentSlotForItem(itemStack);
             Collection<SlotType> curioTags = AccessoriesAPI.getValidSlotTypes(player, itemStack);
             if (index == 0) {
-                if (!this.moveItemStackTo(itemStack1, 9, 45, true)) {
+                if (!this.moveItemStackTo(itemStack1, 17, 53, true)) {
                     return ItemStack.EMPTY;
                 }
                 slot.onQuickCraft(itemStack1, itemStack);
             } else if (index < 5) {
-                if (!this.moveItemStackTo(itemStack1, 9, 45, false)) {
+                if (!this.moveItemStackTo(itemStack1, 17, 53, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (index < 9) {
-                if (!this.moveItemStackTo(itemStack1, 9, 45, false)) {
+            } else if (index < 17) {
+                if (!this.moveItemStackTo(itemStack1, 17, 53, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (equipmentSlot.getType() == EquipmentSlot.Type.HUMANOID_ARMOR && !this.slots.get(8 - equipmentSlot.getIndex()).hasItem()) {
-                int i = 8 - equipmentSlot.getIndex();
+            } else if (equipmentSlot.getType() == EquipmentSlot.Type.HUMANOID_ARMOR && !this.slots.get(16 - equipmentSlot.getIndex()).hasItem()) {
+                int i = 16 - equipmentSlot.getIndex();
                 if (!this.moveItemStackTo(itemStack1, i, i + 1, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (index < 46 && !curioTags.isEmpty() && !this.getEmptyCurioSlots(curioTags).isEmpty()) {
+            } else if (index < 53 && !curioTags.isEmpty() && !this.getEmptyCurioSlots(curioTags).isEmpty()) {
                 for (int i : this.getEmptyCurioSlots(curioTags)) {
                     if (!this.moveItemStackTo(itemStack1, i, i + 1, false)) {
                         return ItemStack.EMPTY;
                     }
                 }
-            } else if (equipmentSlot == EquipmentSlot.OFFHAND && !(this.slots.get(45)).hasItem()) {
-                if (!this.moveItemStackTo(itemStack1, 45, 46, false)) {
+            } else if (equipmentSlot == EquipmentSlot.OFFHAND && !(this.slots.get(53)).hasItem()) {
+                if (!this.moveItemStackTo(itemStack1, 53, 54, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (index < 36) {
-                if (!this.moveItemStackTo(itemStack1, 36, 45, false)) {
+            } else if (index < 44) {
+                if (!this.moveItemStackTo(itemStack1, 44, 53, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (index < 45) {
-                if (!this.moveItemStackTo(itemStack1, 9, 36, false)) {
+            } else if (index < 53) {
+                if (!this.moveItemStackTo(itemStack1, 17, 44, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.moveItemStackTo(itemStack1, 9, 45, false)) {
+            } else if (!this.moveItemStackTo(itemStack1, 17, 53, false)) {
                 return ItemStack.EMPTY;
             }
             if (itemStack1.isEmpty()) {
@@ -202,13 +202,13 @@ public class AetherAccessoriesMenu extends InventoryMenu {
     private Set<Integer> getEmptyCurioSlots(Collection<SlotType> slotData) {
         Set<Integer> slots = new HashSet<>();
         for (SlotType identifier : slotData) {
-            switch (identifier.name()) { //todo
-                case "pendant_slot" -> slots.add(46);
-                case "cape_slot" -> slots.add(47);
-                case "shield_slot" -> slots.add(48);
-                case "ring_slot" -> slots.addAll(Set.of(49, 50));
-                case "gloves_slot" -> slots.add(51);
-                case "accessory_slot" -> slots.addAll(Set.of(52, 53));
+            switch (identifier.name()) {
+                case "aether:pendant_slot" -> slots.add(5);
+                case "aether:cape_slot" -> slots.add(6);
+                case "aether:shield_slot" -> slots.add(7);
+                case "aether:ring_slot" -> slots.addAll(Set.of(8, 9));
+                case "aether:gloves_slot" -> slots.add(10);
+                case "aether:accessory_slot" -> slots.addAll(Set.of(11, 12));
             }
         }
         slots.removeIf(index -> this.slots.get(index).hasItem());
