@@ -143,10 +143,6 @@ public class DoorwayBlock extends Block {
         }
     }
 
-    /**
-     * Warning for "deprecation" is suppressed because the method is fine to override.
-     */
-    @SuppressWarnings("deprecation")
     @Override
     public RenderShape getRenderShape(BlockState state) {
         return state.getValue(INVISIBLE) ? RenderShape.INVISIBLE : super.getRenderShape(state);

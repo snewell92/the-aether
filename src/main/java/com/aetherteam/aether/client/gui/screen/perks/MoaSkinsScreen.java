@@ -394,7 +394,7 @@ public class MoaSkinsScreen extends Screen {
                     this.previewMoa = moa;
                 }
             } else { // Render and rotate preview Moa once it does exist.
-                this.moaRotation = Mth.wrapDegrees(Mth.lerp(partialTicks, this.moaRotation, this.moaRotation + 2.5F));
+                this.moaRotation = Mth.wrapDegrees(Mth.lerp(partialTicks, this.moaRotation, this.moaRotation + 1.0F));
                 int startX = this.leftPos + (this.imageWidth / 2);
                 int startY = this.topPos + (this.imageHeight / 2);
                 renderRotatingEntity(guiGraphics, startX - 300, startY - 135, startX + 300, startY + 65, 27, 0.055F, this.moaRotation, -20.0F, this.getPreviewMoa());

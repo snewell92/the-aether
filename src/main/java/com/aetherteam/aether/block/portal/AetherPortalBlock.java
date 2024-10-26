@@ -189,10 +189,6 @@ public class AetherPortalBlock extends Block implements Portal {
         }
     }
 
-    /**
-     * Warning for "deprecation" is suppressed because the method is fine to override.
-     */
-    @SuppressWarnings("deprecation")
     @Override
     public BlockState rotate(BlockState state, Rotation rotation) {
         return switch (rotation) {
