@@ -113,7 +113,7 @@ public class MoaSkinsScreen extends Screen {
 
             // If the user has no selected skin in this screen, set it to whatever their saved skin is according to the server data.
             if (this.getSelectedSkin() == null) {
-                this.selectedSkin = userSkinsData.containsKey(uuid) ? userSkinsData.get(uuid).moaSkin() : this.moaSkins.get(0);
+                this.selectedSkin = userSkinsData.containsKey(uuid) ? userSkinsData.get(uuid).moaSkin() : this.moaSkins.getFirst();
             }
 
             // Button for saving a selected skin as the one that will be applied to the player's Moa.
@@ -157,7 +157,7 @@ public class MoaSkinsScreen extends Screen {
             ).bounds(this.leftPos + (this.imageWidth / 2) - (54 / 2), this.topPos + this.imageHeight - 25, 54, 18)));
 
             // Button that opens a screen with a redirect to a guide for how to connect a UUID.
-            this.addRenderableWidget(new PatreonButton(Button.builder(Component.translatable("?"),
+            this.addRenderableWidget(new PatreonButton(Button.builder(Component.literal("?"),
                     (pressed) -> this.getMinecraft().setScreen(new ConfirmLinkScreen((callback) -> {
                         if (callback) {
                             Util.getPlatform().openUri(HELP_LINK);

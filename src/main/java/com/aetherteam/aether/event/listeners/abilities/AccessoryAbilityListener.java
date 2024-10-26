@@ -20,7 +20,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 
 public class AccessoryAbilityListener {
     /**
-     * @see Aether#eventSetup()
+     * @see Aether#eventSetup(IEventBus)
      */
     public static void listen(IEventBus bus) {
         bus.addListener(AccessoryAbilityListener::onBlockBreak);

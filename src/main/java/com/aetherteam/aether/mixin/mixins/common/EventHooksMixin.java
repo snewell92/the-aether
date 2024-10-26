@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(EventHooks.class)
 public class EventHooksMixin {
     /**
-     * This handles spawning mobs with accessories right after the call to {@link Mob#finalizeSpawn(ServerLevelAccessor, DifficultyInstance, MobSpawnType, SpawnGroupData, CompoundTag)}.
+     * This handles spawning mobs with accessories right after the call to {@link Mob#finalizeSpawn(ServerLevelAccessor, DifficultyInstance, MobSpawnType, SpawnGroupData)}.
      *
      * @see EntityHooks#canMobSpawnWithAccessories(Entity)
      * @see EntityHooks#spawnWithAccessories(Entity, DifficultyInstance)

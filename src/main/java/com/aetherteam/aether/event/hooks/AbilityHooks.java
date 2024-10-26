@@ -155,7 +155,7 @@ public class AbilityHooks {
         /**
          * Sets that the player recently attacked.
          *
-         * @see com.aetherteam.aether.event.listeners.abilities.AccessoryAbilityListener#onEntityHurt(net.neoforged.neoforge.event.entity.living.LivingAttackEvent)
+         * @see com.aetherteam.aether.event.listeners.abilities.AccessoryAbilityListener#onEntityHurt(net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent)
          */
         public static void setAttack(DamageSource source) {
             if (source.getEntity() instanceof Player player) {
@@ -166,7 +166,7 @@ public class AbilityHooks {
         /**
          * Prevents magma block damage when wearing ice accessories.
          *
-         * @see com.aetherteam.aether.event.listeners.abilities.AccessoryAbilityListener#onEntityHurt(net.neoforged.neoforge.event.entity.living.LivingAttackEvent)
+         * @see com.aetherteam.aether.event.listeners.abilities.AccessoryAbilityListener#onEntityHurt(net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent)
          */
         public static boolean preventMagmaDamage(LivingEntity entity, DamageSource source) {
             return source == entity.level().damageSources().hotFloor() && EquipmentUtil.hasFreezingAccessory(entity);
@@ -263,7 +263,7 @@ public class AbilityHooks {
         /**
          * Handles ability for {@link com.aetherteam.aether.item.tools.abilities.ZaniteTool}.
          *
-         * @see ZaniteTool#increaseSpeed(ItemStack, float)
+         * @see ZaniteTool#increaseSpeed(ItemAttributeModifiers, ItemStack, double)
          * @see com.aetherteam.aether.event.listeners.abilities.ToolAbilityListener#modifyBreakSpeed(PlayerEvent.BreakSpeed)
          */
         public static ItemAttributeModifiers.Entry handleZaniteAbilityModifiers(ItemAttributeModifiers modifiers, ItemStack stack) {
@@ -344,7 +344,7 @@ public class AbilityHooks {
          *
          * @param entity The hurt {@link LivingEntity}.
          * @param source The {@link DamageSource} that hurt the entity.
-         * @see com.aetherteam.aether.event.listeners.abilities.WeaponAbilityListener#onDartHurt(LivingHurtEvent)
+         * @see com.aetherteam.aether.event.listeners.abilities.WeaponAbilityListener#onDartHurt(LivingDamageEvent.Pre)
          */
         public static void stickDart(LivingEntity entity, DamageSource source) {
             if (entity instanceof Player player && !player.level().isClientSide()) {
@@ -361,7 +361,7 @@ public class AbilityHooks {
         }
 
         /**
-         * Sets the hit entity on fire for the amount of seconds the Phoenix Arrow has stored, as determined by {@link com.aetherteam.aether.item.combat.loot.PhoenixBowItem#customArrow(AbstractArrow, ItemStack)}.
+         * Sets the hit entity on fire for the amount of seconds the Phoenix Arrow has stored, as determined by {@link com.aetherteam.aether.item.combat.loot.PhoenixBowItem#customArrow(AbstractArrow, ItemStack, ItemStack)}.
          *
          * @param result     The {@link HitResult} of the projectile.
          * @param projectile The {@link Projectile} that hit something.
@@ -410,7 +410,7 @@ public class AbilityHooks {
          * @param source The attacking {@link Entity}.
          * @param damage The original damage as a {@link Float}.
          * @return The modified damage as a {@link Float}.
-         * @see com.aetherteam.aether.event.listeners.abilities.WeaponAbilityListener#onEntityDamage(LivingDamageEvent)
+         * @see com.aetherteam.aether.event.listeners.abilities.WeaponAbilityListener#onEntityDamage(LivingDamageEvent.Pre)
          */
         public static float reduceWeaponEffectiveness(LivingEntity target, Entity source, float damage) {
             if (AetherConfig.SERVER.tools_debuff.get() && !target.level().isClientSide()) { // Checks if tool debuffs are enabled and if the level is on the server side.
@@ -449,7 +449,7 @@ public class AbilityHooks {
          * @param source The attacking {@link Entity}.
          * @param damage The original damage as a {@link Float}.
          * @return The modified damage as a {@link Float}.
-         * @see com.aetherteam.aether.event.listeners.abilities.WeaponAbilityListener#onEntityDamage(LivingDamageEvent)
+         * @see com.aetherteam.aether.event.listeners.abilities.WeaponAbilityListener#onEntityDamage(LivingDamageEvent.Pre)
          */
         public static float reduceArmorEffectiveness(LivingEntity target, @Nullable Entity source, float damage) {
             if (source != null) {

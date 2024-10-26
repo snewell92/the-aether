@@ -61,17 +61,11 @@ public class AercloudBlock extends HalfTransparentBlock {
     public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
     }
 
-    /**
-     * [CODE COPY] - {@link net.minecraft.world.level.block.AbstractGlassBlock#propagatesSkylightDown(BlockState, BlockGetter, BlockPos)}.
-     */
     @Override
     public boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) {
         return false;
     }
 
-    /**
-     * [CODE COPY] - {@link net.minecraft.world.level.block.AbstractGlassBlock#getShadeBrightness(BlockState, BlockGetter, BlockPos)}.
-     */
     @Override
     public float getShadeBrightness(BlockState state, BlockGetter level, BlockPos pos) {
         return 0.25F;
@@ -109,7 +103,7 @@ public class AercloudBlock extends HalfTransparentBlock {
     }
 
     /**
-     * [CODE COPY] - {@link net.minecraft.world.level.block.AbstractGlassBlock#getVisualShape(BlockState, BlockGetter, BlockPos, CollisionContext)}.
+     * [CODE COPY] - {@link net.minecraft.world.level.block.TransparentBlock#getVisualShape(BlockState, BlockGetter, BlockPos, CollisionContext)}.
      */
     @Override
     public VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {

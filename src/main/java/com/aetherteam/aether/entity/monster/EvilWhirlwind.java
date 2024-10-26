@@ -28,7 +28,6 @@ public class EvilWhirlwind extends AbstractWhirlwind {
      * @param difficulty The {@link DifficultyInstance} of the game.
      * @param reason     The {@link MobSpawnType} reason.
      * @param spawnData  The {@link SpawnGroupData}.
-     * @param tag        The {@link CompoundTag} to apply to this entity.
      * @return The {@link SpawnGroupData} to return.
      */
     @Override

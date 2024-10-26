@@ -148,7 +148,7 @@ public class WorldDisplayHelper {
         try {
             List<LevelSummary> summaryList = new ArrayList<>(source.loadLevelSummaries(source.findLevelCandidates()).get());
             Collections.sort(summaryList); // Sorts the LevelSummaries by most recent to least recent.
-            if (summaryList.size() > 0) {
+            if (!summaryList.isEmpty()) {
                 LevelSummary summary = null;
 
                 for (int i = summaryList.size() - 1; i >= 0; i--) { // Looks for the most recent LevelSummary that isn't locked or disabled.

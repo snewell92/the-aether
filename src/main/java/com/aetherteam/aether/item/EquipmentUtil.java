@@ -261,16 +261,10 @@ public final class EquipmentUtil {
                 || findFirstAccessory(entity, gloves).isPresent();
     }
 
-    /**
-     * @see ICuriosItemHandler#findFirstCurio(Item)
-     */
     public static Optional<SlotEntryReference> findFirstAccessory(LivingEntity entity, Item item) {
         return findFirstAccessory(entity, (itemStack) -> itemStack.is(item));
     }
 
-    /**
-     * @see ICuriosItemHandler#findFirstCurio(Predicate)
-     */
     public static Optional<SlotEntryReference> findFirstAccessory(LivingEntity entity, Predicate<ItemStack> predicate) {
         AccessoriesCapability accessories = AccessoriesCapability.get(entity);
         if (accessories != null) {

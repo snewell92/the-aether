@@ -19,10 +19,10 @@ public interface ZaniteTool {
     /**
      * Calculates mining speed increase using the default mining speed inputted into the Zanite value buff function.
      *
+     * @param modifiers The originak {@link ItemAttributeModifiers}.
      * @param stack The {@link ItemStack} being used for mining.
-     * @param speed The mining speed of the stack as a {@link Float}.
-     * @return The buffed mining speed of the zanite tool as a {@link Float}.
-     * @see com.aetherteam.aether.event.hooks.AbilityHooks.ToolHooks#handleZaniteToolAbility(ItemStack, float)
+     * @param baseValue The mining speed of the stack as a {@link Double}.
+     * @return The buffed {@link ItemAttributeModifiers.Entry} for the mining speed of the zanite tool.
      */
     default ItemAttributeModifiers.Entry increaseSpeed(ItemAttributeModifiers modifiers, ItemStack stack, double baseValue) {
         return new ItemAttributeModifiers.Entry(Attributes.MINING_EFFICIENCY,

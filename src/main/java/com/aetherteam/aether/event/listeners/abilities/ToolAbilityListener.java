@@ -18,7 +18,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 
 public class ToolAbilityListener {
     /**
-     * @see Aether#eventSetup()
+     * @see Aether#eventSetup(IEventBus)
      */
     public static void listen(IEventBus bus) {
         bus.addListener(ToolAbilityListener::setupToolModifications);
@@ -66,7 +66,6 @@ public class ToolAbilityListener {
     }
 
     /**
-     * @see AbilityHooks.ToolHooks#handleZaniteToolAbility(ItemStack, float)
      * @see AbilityHooks.ToolHooks#reduceToolEffectiveness(Player, BlockState, ItemStack, float)
      */
     public static void modifyBreakSpeed(PlayerEvent.BreakSpeed event) {

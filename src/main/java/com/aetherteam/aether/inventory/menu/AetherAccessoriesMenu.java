@@ -20,10 +20,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * [CODE COPY] - {@link top.theillusivec4.curios.common.inventory.container.CuriosContainer}<br><br>
- * Heavily adapted to only set up Aether curio types.
- */
 public class AetherAccessoriesMenu extends InventoryMenu {
     private static final Map<EquipmentSlot, ResourceLocation> TEXTURE_EMPTY_SLOTS = Map.of(
         EquipmentSlot.FEET,

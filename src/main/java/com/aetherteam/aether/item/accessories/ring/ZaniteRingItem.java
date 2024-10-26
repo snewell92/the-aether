@@ -13,9 +13,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
-/**
- * Zanite ring mining speed boost behavior is called by {@link com.aetherteam.aether.event.listeners.abilities.AccessoryAbilityListener#onMiningSpeed(PlayerEvent.BreakSpeed)}
- */
 public class ZaniteRingItem extends RingItem implements ZaniteAccessory {
     public ZaniteRingItem(Properties properties) {
         super(AetherSoundEvents.ITEM_ACCESSORY_EQUIP_ZANITE_RING, properties);

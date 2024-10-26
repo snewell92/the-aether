@@ -60,7 +60,7 @@ public class ShieldOfRepulsionRenderer implements AccessoryRenderer {
      * @param headPitch         The {@link Float} for the head pitch rotation.
      */
     @Override
-    public <M extends LivingEntity> void render(ItemStack stack, SlotReference reference, PoseStack matrices, EntityModel<M> entityModel, MultiBufferSource multiBufferSource, int light, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+    public <M extends LivingEntity> void render(ItemStack stack, SlotReference reference, PoseStack poseStack, EntityModel<M> entityModel, MultiBufferSource buffer, int packedLight, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         LivingEntity livingEntity = reference.entity();
         ShieldOfRepulsionItem shield = (ShieldOfRepulsionItem) stack.getItem();
         ResourceLocation texture;
@@ -86,8 +86,8 @@ public class ShieldOfRepulsionRenderer implements AccessoryRenderer {
         entityModel.copyPropertiesTo((EntityModel<M>) model);
 
         AccessoryRenderer.followBodyRotations(reference.entity(), model);
-        VertexConsumer consumer = ItemRenderer.getArmorFoilBuffer(multiBufferSource, RenderType.entityTranslucent(texture), false);
-        model.renderToBuffer(matrices, consumer, light, OverlayTexture.NO_OVERLAY);
+        VertexConsumer consumer = ItemRenderer.getArmorFoilBuffer(buffer, RenderType.entityTranslucent(texture), false);
+        model.renderToBuffer(poseStack, consumer, packedLight, OverlayTexture.NO_OVERLAY);
     }
 
     @Override

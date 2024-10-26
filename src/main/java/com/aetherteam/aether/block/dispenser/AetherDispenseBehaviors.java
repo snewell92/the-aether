@@ -19,10 +19,12 @@ import net.minecraft.core.Position;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.decoration.ArmorStand;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.DispensibleContainerItem;
 import net.minecraft.world.item.Item;
@@ -52,7 +54,7 @@ public class AetherDispenseBehaviors {
     };
 
     /**
-     * Based on {@link net.minecraft.world.item.ArmorItem#dispenseArmor(BlockSource, ItemStack)} and {@link top.theillusivec4.curios.common.event.CuriosEventHandler#curioRightClick(PlayerInteractEvent.RightClickItem)}.<br><br>
+     * Based on {@link net.minecraft.world.item.ArmorItem#dispenseArmor(BlockSource, ItemStack)} and {@link io.wispforest.accessories.impl.AccessoriesEventHandler#attemptEquipFromUse(Player, InteractionHand)}.<br><br>
      * Handles checking if an accessory shot from a dispenser can be equipped, and handles that equipping behavior if it can.
      *
      * @param blockSource The {@link BlockSource} for the dispenser.
@@ -65,7 +67,7 @@ public class AetherDispenseBehaviors {
         if (list.isEmpty()) {
             return false;
         } else {
-            LivingEntity livingEntity = list.get(0);
+            LivingEntity livingEntity = list.getFirst();
             ItemStack itemStack = stack.split(1);
             AccessoriesCapability capability = AccessoriesCapability.get(livingEntity);
             if (capability != null) {
@@ -166,19 +168,4 @@ public class AetherDispenseBehaviors {
             }
         }
     };
-
-    /**
-     * Behavior to shoot a projectile.
-     *
-     * @param source     The {@link BlockSource} for the dispenser.
-     * @param projectile The {@link Projectile} to dispense.
-     * @param velocity   The velocity for the projectile, as a {@link Float}.
-     * @param inaccuracy The inaccuracy for the projectile, as a {@link Float}.
-     */
-    protected static void spawnProjectile(BlockSource source, Projectile projectile, float velocity, float inaccuracy) {
-        Level level = source.level();
-        Direction direction = source.state().getValue(DispenserBlock.FACING);
-        projectile.shoot(direction.getStepX(), direction.getStepY(), direction.getStepZ(), velocity, inaccuracy);
-        level.addFreshEntity(projectile);
-    }
 }

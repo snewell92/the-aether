@@ -45,9 +45,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * [CODE COPY] - {@link CuriosScreen}.<br>
  * [CODE COPY] - {@link InventoryScreen}.<br><br>
- * Modified to register slots for Aether accessories only.
+ * Modified to register slots for Aether accessories.
  */
 public class AetherAccessoriesScreen extends EffectRenderingInventoryScreen<AetherAccessoriesMenu> implements RecipeUpdateListener, RecipeBookBehavior<AetherAccessoriesMenu, AetherAccessoriesScreen> {
     public static final WidgetSprites ACCESSORIES_BUTTON = new WidgetSprites(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "inventory/accessories_button"), ResourceLocation.fromNamespaceAndPath(Aether.MODID, "inventory/accessories_button_highlighted"));
@@ -118,7 +117,6 @@ public class AetherAccessoriesScreen extends EffectRenderingInventoryScreen<Aeth
     }
 
     /**
-     * [CODE COPY] - {@link CuriosScreen#updateScreenPosition()}.<br>
      * [CODE COPY] - {@link RecipeBookComponent#updateScreenPosition(int, int)}.
      */
     private void updateScreenPosition() {

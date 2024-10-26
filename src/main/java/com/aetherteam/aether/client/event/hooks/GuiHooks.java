@@ -34,6 +34,7 @@ import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
@@ -241,7 +242,7 @@ public class GuiHooks {
     /**
      * Handles the time until the Patreon {@link RefreshButton} can be clicked again.
      *
-     * @see com.aetherteam.aether.client.event.listeners.GuiListener#onClientTick(TickEvent.ClientTickEvent)
+     * @see com.aetherteam.aether.client.event.listeners.GuiListener#onClientTick(ClientTickEvent.Post)
      */
     public static void handlePatreonRefreshRebound() {
         if (RefreshButton.reboundTimer > 0) {
@@ -276,7 +277,7 @@ public class GuiHooks {
      */
     public static void closeContainerMenu(int key, int action) {
         Minecraft minecraft = Minecraft.getInstance();
-        if (minecraft.screen instanceof AbstractContainerScreen abstractContainerScreen) {
+        if (minecraft.screen instanceof AbstractContainerScreen<?> abstractContainerScreen) {
             if (!AetherConfig.CLIENT.disable_accessory_button.get() && AetherKeys.OPEN_ACCESSORY_INVENTORY.getKey().getValue() == key && (action == InputConstants.PRESS || action == InputConstants.REPEAT)) {
                 abstractContainerScreen.onClose();
             }

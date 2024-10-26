@@ -40,7 +40,7 @@ public class AerogelBlock extends HalfTransparentBlock implements AerogelCulling
     }
 
     /**
-     * [CODE COPY] - {@link net.minecraft.world.level.block.AbstractGlassBlock#getVisualShape(BlockState, BlockGetter, BlockPos, CollisionContext)}.
+     * [CODE COPY] - {@link net.minecraft.world.level.block.TransparentBlock#getVisualShape(BlockState, BlockGetter, BlockPos, CollisionContext)}.
      */
     @Override
     public VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
