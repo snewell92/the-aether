@@ -126,7 +126,7 @@ public class AetherConfig {
             sun_altar_dimensions = builder
                 .comment("Configures what dimensions are able to have their time changed by the Sun Altar")
                 .translation("config.aether.server.multiplayer.sun_altar_dimensions")
-                .defineList("Configure Sun Altar dimensions", List.of("aether:the_aether"), s -> s instanceof String); //todo deprecation warning
+                .defineList("Configure Sun Altar dimensions", List.of("aether:the_aether"), () -> "", s -> s instanceof String);
             builder.pop();
 
             builder.push("Modpack");
