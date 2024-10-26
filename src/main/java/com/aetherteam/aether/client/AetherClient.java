@@ -7,10 +7,12 @@ import com.aetherteam.aether.client.event.listeners.*;
 import com.aetherteam.aether.client.event.listeners.abilities.AccessoryAbilityClientListener;
 import com.aetherteam.aether.client.event.listeners.capability.AetherPlayerClientListener;
 import com.aetherteam.aether.client.gui.screen.inventory.SunAltarScreen;
+import com.aetherteam.aether.client.gui.screen.menu.AetherReceivingLevelScreen;
 import com.aetherteam.aether.client.particle.AetherParticleTypes;
 import com.aetherteam.aether.client.renderer.AetherOverlays;
 import com.aetherteam.aether.client.renderer.AetherRenderers;
 import com.aetherteam.aether.client.renderer.level.AetherRenderEffects;
+import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.inventory.menu.AetherMenuTypes;
 import com.aetherteam.aether.inventory.menu.LoreBookMenu;
@@ -30,6 +32,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
+import net.neoforged.neoforge.client.event.RegisterDimensionTransitionScreenEvent;
 import net.neoforged.neoforge.client.event.RegisterEntitySpectatorShadersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 
@@ -39,6 +42,7 @@ public class AetherClient {
     public static void clientInit(IEventBus bus) {
         bus.addListener(AetherClient::clientSetup);
         bus.addListener(AetherClient::registerSpectatorShaders);
+        bus.addListener(AetherClient::registerDimensionTransitionScreens);
         bus.addListener(AetherClient::loadComplete);
 
         AetherMenus.MENUS.register(bus);
@@ -162,6 +166,11 @@ public class AetherClient {
      */
     public static void registerSpectatorShaders(RegisterEntitySpectatorShadersEvent event) {
         event.register(AetherEntityTypes.SUN_SPIRIT.get(), ResourceLocation.fromNamespaceAndPath(Aether.MODID, "shaders/post/sun_spirit.json"));
+    }
+
+    public static void registerDimensionTransitionScreens(RegisterDimensionTransitionScreenEvent event) {
+        event.registerIncomingEffect(AetherDimensions.AETHER_LEVEL, AetherReceivingLevelScreen::new);
+        event.registerOutgoingEffect(AetherDimensions.AETHER_LEVEL, AetherReceivingLevelScreen::new);
     }
 
     /**

@@ -49,7 +49,6 @@
     "client.PanoramaRendererMixin",
     "client.PauseScreenMixin",
     "client.PlayerSkinMixin",
-    "client.ReceivingLevelScreenMixin",
     "client.SmithingScreenMixin",
     "client.TippableArrowRendererMixin",
     "client.TitleScreenMixin",
