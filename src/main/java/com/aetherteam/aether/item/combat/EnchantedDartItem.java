@@ -26,6 +26,7 @@ public class EnchantedDartItem extends DartItem {
     public Projectile asProjectile(Level level, Position pos, ItemStack stack, Direction direction) {
         EnchantedDart dart = new EnchantedDart(AetherEntityTypes.ENCHANTED_DART.get(), level, pos.x(), pos.y(), pos.z(), stack.copyWithCount(1), null);
         dart.pickup = AbstractArrow.Pickup.ALLOWED;
+        dart.setNoGravity(true);
         return dart;
     }
 }

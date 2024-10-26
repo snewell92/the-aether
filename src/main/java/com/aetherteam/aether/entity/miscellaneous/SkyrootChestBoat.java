@@ -10,9 +10,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class SkyrootChestBoat extends ChestBoat implements SkyrootBoatBehavior {
+public class SkyrootChestBoat extends ChestBoat {
     public SkyrootChestBoat(EntityType<? extends SkyrootChestBoat> entityType, Level level) {
         super(entityType, level);
+        this.setVariant(SkyrootBoat.SKYROOT);
     }
 
     public SkyrootChestBoat(Level level, double x, double y, double z) {
@@ -21,18 +22,5 @@ public class SkyrootChestBoat extends ChestBoat implements SkyrootBoatBehavior {
         this.xo = x;
         this.yo = y;
         this.zo = z;
-    }
-
-    @Override
-    public Item getDropItem() {
-        return AetherItems.SKYROOT_CHEST_BOAT.get();
-    }
-
-    /**
-     * @see SkyrootBoatBehavior#fall(Boat, double, boolean)
-     */
-    @Override
-    protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {
-        this.fall(this, y, onGround);
     }
 }

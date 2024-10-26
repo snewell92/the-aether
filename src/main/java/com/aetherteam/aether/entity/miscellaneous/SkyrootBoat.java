@@ -9,9 +9,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class SkyrootBoat extends Boat implements SkyrootBoatBehavior {
+public class SkyrootBoat extends Boat {
+    public static final Boat.Type SKYROOT = Boat.Type.valueOf("AETHER_SKYROOT");
+
     public SkyrootBoat(EntityType<? extends SkyrootBoat> type, Level level) {
         super(type, level);
+        this.setVariant(SKYROOT);
     }
 
     public SkyrootBoat(Level level, double x, double y, double z) {
@@ -20,18 +23,5 @@ public class SkyrootBoat extends Boat implements SkyrootBoatBehavior {
         this.xo = x;
         this.yo = y;
         this.zo = z;
-    }
-
-    @Override
-    public Item getDropItem() {
-        return AetherItems.SKYROOT_BOAT.get();
-    }
-
-    /**
-     * @see SkyrootBoatBehavior#fall(Boat, double, boolean)
-     */
-    @Override
-    protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {
-        this.fall(this, y, onGround);
     }
 }

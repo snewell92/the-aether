@@ -26,6 +26,7 @@ public class PoisonDartItem extends DartItem {
     public Projectile asProjectile(Level level, Position pos, ItemStack stack, Direction direction) {
         PoisonDart dart = new PoisonDart(AetherEntityTypes.POISON_DART.get(), level, pos.x(), pos.y(), pos.z(), stack.copyWithCount(1), null);
         dart.pickup = AbstractArrow.Pickup.ALLOWED;
+        dart.setNoGravity(true);
         return dart;
     }
 }

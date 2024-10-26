@@ -6,6 +6,9 @@ import com.aetherteam.aether.api.registers.MoaType;
 import com.aetherteam.aether.attachment.AetherDataAttachments;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.AetherCauldronInteractions;
+import com.aetherteam.aether.block.dispenser.AetherDispenseBehaviors;
+import com.aetherteam.aether.block.dispenser.DispenseUsableItemBehavior;
+import com.aetherteam.aether.block.dispenser.SkyrootBoatDispenseBehavior;
 import com.aetherteam.aether.blockentity.AetherBlockEntityTypes;
 import com.aetherteam.aether.blockentity.TreasureChestBlockEntity;
 import com.aetherteam.aether.client.AetherClient;
@@ -22,6 +25,7 @@ import com.aetherteam.aether.data.resources.registries.AetherDataMaps;
 import com.aetherteam.aether.data.resources.registries.AetherMoaTypes;
 import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.aetherteam.aether.entity.miscellaneous.SkyrootBoat;
 import com.aetherteam.aether.event.listeners.*;
 import com.aetherteam.aether.event.listeners.abilities.AccessoryAbilityListener;
 import com.aetherteam.aether.event.listeners.abilities.ArmorAbilityListener;
@@ -64,6 +68,8 @@ import io.wispforest.accessories.api.slot.UniqueSlotHandling;
 import net.minecraft.ChatFormatting;
 import net.minecraft.SharedConstants;
 import net.minecraft.core.cauldron.CauldronInteraction;
+import net.minecraft.core.dispenser.BoatDispenseItemBehavior;
+import net.minecraft.core.dispenser.ProjectileDispenseBehavior;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackLocationInfo;
 import net.minecraft.server.packs.PackSelectionConfig;
@@ -77,6 +83,7 @@ import net.minecraft.world.Container;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.ChestBlock;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -549,17 +556,17 @@ public class Aether {
     }
 
     private void registerDispenserBehaviors() {
-//        DispenserBlock.registerBehavior(AetherItems.GOLDEN_DART.get(), new DispenseDartBehavior(AetherItems.GOLDEN_DART));
-//        DispenserBlock.registerBehavior(AetherItems.POISON_DART.get(), new DispenseDartBehavior(AetherItems.POISON_DART));
-//        DispenserBlock.registerBehavior(AetherItems.ENCHANTED_DART.get(), new DispenseDartBehavior(AetherItems.ENCHANTED_DART));
-//        DispenserBlock.registerBehavior(AetherItems.LIGHTNING_KNIFE.get(), AetherDispenseBehaviors.DISPENSE_LIGHTNING_KNIFE_BEHAVIOR);
-//        DispenserBlock.registerBehavior(AetherItems.HAMMER_OF_KINGBDOGZ.get(), AetherDispenseBehaviors.DISPENSE_KINGBDOGZ_HAMMER_BEHAVIOR);
-//        DispenserBlock.registerBehavior(AetherItems.SKYROOT_WATER_BUCKET.get(), AetherDispenseBehaviors.SKYROOT_BUCKET_DISPENSE_BEHAVIOR);
-//        DispenserBlock.registerBehavior(AetherItems.SKYROOT_BUCKET.get(), AetherDispenseBehaviors.SKYROOT_BUCKET_PICKUP_BEHAVIOR);
-//        DispenserBlock.registerBehavior(AetherItems.AMBROSIUM_SHARD.get(), new DispenseUsableItemBehavior<>(AetherRecipeTypes.AMBROSIUM_ENCHANTING.get()));
-//        DispenserBlock.registerBehavior(AetherItems.SWET_BALL.get(), new DispenseUsableItemBehavior<>(AetherRecipeTypes.SWET_BALL_CONVERSION.get()));
-//        DispenserBlock.registerBehavior(AetherItems.SKYROOT_BOAT.get(), new DispenseSkyrootBoatBehavior());
-//        DispenserBlock.registerBehavior(AetherItems.SKYROOT_CHEST_BOAT.get(), new DispenseSkyrootBoatBehavior(true));
+        DispenserBlock.registerBehavior(AetherItems.GOLDEN_DART.get(), new ProjectileDispenseBehavior(AetherItems.GOLDEN_DART.get()));
+        DispenserBlock.registerBehavior(AetherItems.POISON_DART.get(), new ProjectileDispenseBehavior(AetherItems.POISON_DART.get()));
+        DispenserBlock.registerBehavior(AetherItems.ENCHANTED_DART.get(), new ProjectileDispenseBehavior(AetherItems.ENCHANTED_DART.get()));
+        DispenserBlock.registerBehavior(AetherItems.LIGHTNING_KNIFE.get(), new ProjectileDispenseBehavior(AetherItems.LIGHTNING_KNIFE.get()));
+        DispenserBlock.registerBehavior(AetherItems.HAMMER_OF_KINGBDOGZ.get(), AetherDispenseBehaviors.DISPENSE_KINGBDOGZ_HAMMER_BEHAVIOR);
+        DispenserBlock.registerBehavior(AetherItems.SKYROOT_WATER_BUCKET.get(), AetherDispenseBehaviors.SKYROOT_BUCKET_DISPENSE_BEHAVIOR);
+        DispenserBlock.registerBehavior(AetherItems.SKYROOT_BUCKET.get(), AetherDispenseBehaviors.SKYROOT_BUCKET_PICKUP_BEHAVIOR);
+        DispenserBlock.registerBehavior(AetherItems.AMBROSIUM_SHARD.get(), new DispenseUsableItemBehavior<>(AetherRecipeTypes.AMBROSIUM_ENCHANTING.get()));
+        DispenserBlock.registerBehavior(AetherItems.SWET_BALL.get(), new DispenseUsableItemBehavior<>(AetherRecipeTypes.SWET_BALL_CONVERSION.get()));
+        DispenserBlock.registerBehavior(AetherItems.SKYROOT_BOAT.get(), new SkyrootBoatDispenseBehavior());
+        DispenserBlock.registerBehavior(AetherItems.SKYROOT_CHEST_BOAT.get(), new SkyrootBoatDispenseBehavior(true));
     }
 
     private void registerCauldronInteractions() {
