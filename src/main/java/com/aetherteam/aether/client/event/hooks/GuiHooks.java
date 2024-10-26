@@ -182,10 +182,10 @@ public class GuiHooks {
                     y += 9;
                 }
             }
-            if (screen != lastScreen) { // Randomize the trivia to display if a new screen has been switched to.
-                if (!Aether.TRIVIA_READER.getTrivia().isEmpty()) {
-                    Aether.TRIVIA_READER.randomizeTriviaIndex();
-                }
+        }
+        if ((screen instanceof TitleScreen && !(lastScreen instanceof TitleScreen)) || (screen instanceof PauseScreen && !(lastScreen instanceof PauseScreen))) { // Randomize the trivia to display if a new screen has been switched to.
+            if (!Aether.TRIVIA_READER.getTrivia().isEmpty()) {
+                Aether.TRIVIA_READER.randomizeTriviaIndex();
             }
         }
         lastScreen = screen;
