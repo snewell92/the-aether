@@ -535,7 +535,7 @@ public class EntityHooks {
      * @see com.aetherteam.aether.event.listeners.EntityListener#listen(IEventBus)
      */
     public static List<ItemStack> handleEntityCurioDrops(LivingEntity entity, List<ItemStack> itemStacks, boolean recentlyHit, int looting) {
-        if (entity instanceof Mob mob && mob.hasData(AetherDataAttachments.MOB_ACCESSORY)) {
+        if (entity instanceof Mob mob) {
             SlotTypeReference[] allSlots = { GlovesItem.getStaticIdentifier(), PendantItem.getStaticIdentifier() };
             for (SlotTypeReference identifier : allSlots) {
                 if (!itemStacks.isEmpty()) {
