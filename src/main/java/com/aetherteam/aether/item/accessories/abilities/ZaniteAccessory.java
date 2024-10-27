@@ -8,7 +8,7 @@ public interface ZaniteAccessory {
      * <a href="https://www.desmos.com/calculator/drohdchhsx">See math visually.</a>
      *
      * @param speed A base {@link Float} value.
-     * @param stack The {@link ItemStack} of the Curio.
+     * @param stack The {@link ItemStack} of the accessory.
      * @return The buffed {@link Float} value.
      */
     default float handleMiningSpeed(float speed, ItemStack stack) {

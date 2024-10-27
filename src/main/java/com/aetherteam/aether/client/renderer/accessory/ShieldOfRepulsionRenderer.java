@@ -108,7 +108,7 @@ public class ShieldOfRepulsionRenderer implements AccessoryRenderer {
      * This also renders a dummy model of the player's hand to get around an issue with transparency culling
      * normally making the player's hand invisible.
      *
-     * @param stack       The {@link ItemStack} for the Curio.
+     * @param stack       The {@link ItemStack} for the accessory.
      * @param poseStack   The rendering {@link PoseStack}.
      * @param buffer      The rendering {@link MultiBufferSource}.
      * @param packedLight The {@link Integer} for the packed lighting for rendering.
@@ -123,7 +123,7 @@ public class ShieldOfRepulsionRenderer implements AccessoryRenderer {
     /**
      * Handles rendering the shield overlay model over the player's hands.
      *
-     * @param stack       The {@link ItemStack} for the Curio.
+     * @param stack       The {@link ItemStack} for the accessory.
      * @param model       The player's {@link HumanoidModel}.
      * @param poseStack   The rendering {@link PoseStack}.
      * @param buffer      The rendering {@link MultiBufferSource}.

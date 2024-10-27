@@ -55,7 +55,7 @@ public class EntityListener {
             boolean recentlyHit = entity.hurtMarked;
             int looting = EnchantmentHelper.getEnchantmentLevel(entity.level().registryAccess().holderOrThrow(Enchantments.LOOTING), entity);
             droppedStacks.clear();
-            droppedStacks.addAll(EntityHooks.handleEntityCurioDrops(entity, droppedStacksCopy, recentlyHit, looting));
+            droppedStacks.addAll(EntityHooks.handleEntityAccessoryDrops(entity, droppedStacksCopy, recentlyHit, looting));
             return TriState.DEFAULT;
         });
     }
