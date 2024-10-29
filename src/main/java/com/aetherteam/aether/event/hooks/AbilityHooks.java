@@ -12,7 +12,7 @@ import com.aetherteam.aether.entity.projectile.dart.EnchantedDart;
 import com.aetherteam.aether.entity.projectile.dart.GoldenDart;
 import com.aetherteam.aether.entity.projectile.dart.PoisonDart;
 import com.aetherteam.aether.item.EquipmentUtil;
-import com.aetherteam.aether.item.combat.abilities.weapon.ZaniteWeapon;
+import com.aetherteam.aether.item.accessories.abilities.ZaniteAccessory;
 import com.aetherteam.aether.item.tools.abilities.HolystoneTool;
 import com.aetherteam.aether.item.tools.abilities.ZaniteTool;
 import com.aetherteam.aether.loot.AetherLoot;
@@ -35,8 +35,6 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TieredItem;
-import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -113,6 +111,35 @@ public class AbilityHooks {
                     }
                 }
             }
+        }
+
+        /**
+         * Handles ability for {@link ZaniteAccessory} for Zanite Rings (accounts for if multiple are equipped).
+         * @see ZaniteAccessory#handleMiningSpeed(float, ItemStack)
+         * @see com.aetherteam.aether.event.listeners.abilities.AccessoryAbilityListener#onMiningSpeed(PlayerEvent.BreakSpeed)
+         */
+        public static float handleZaniteRingAbility(LivingEntity entity, float speed) {
+            float newSpeed = speed;
+            List<SlotEntryReference> slotResults = EquipmentUtil.getZaniteRings(entity);
+            for (SlotEntryReference slotResult : slotResults) {
+                if (slotResult != null) {
+                    newSpeed = ZaniteAccessory.handleMiningSpeed(newSpeed, slotResult.stack());
+                }
+            }
+            return newSpeed;
+        }
+
+        /**
+         * Handles ability for {@link ZaniteAccessory} for the Zanite Pendant.
+         * @see ZaniteAccessory#handleMiningSpeed(float, ItemStack)
+         * @see com.aetherteam.aether.event.listeners.abilities.AccessoryAbilityListener#onMiningSpeed(PlayerEvent.BreakSpeed)
+         */
+        public static float handleZanitePendantAbility(LivingEntity entity, float speed) {
+            SlotEntryReference slotResult = EquipmentUtil.getZanitePendant(entity);
+            if (slotResult != null) {
+                speed = ZaniteAccessory.handleMiningSpeed(speed, slotResult.stack());
+            }
+            return speed;
         }
 
         /**
@@ -262,18 +289,14 @@ public class AbilityHooks {
 
         /**
          * Handles ability for {@link com.aetherteam.aether.item.tools.abilities.ZaniteTool}.
-         *
-         * @see ZaniteTool#increaseSpeed(ItemAttributeModifiers, ItemStack, double)
+         * @see ZaniteTool#increaseSpeed(ItemStack, float)
          * @see com.aetherteam.aether.event.listeners.abilities.ToolAbilityListener#modifyBreakSpeed(PlayerEvent.BreakSpeed)
          */
-        public static ItemAttributeModifiers.Entry handleZaniteAbilityModifiers(ItemAttributeModifiers modifiers, ItemStack stack) {
-            return switch (stack.getItem()) {
-                case ZaniteWeapon zaniteWeapon ->
-                    zaniteWeapon.increaseDamage(modifiers, stack);
-                case ZaniteTool zaniteTool when stack.getItem() instanceof TieredItem tieredItem ->
-                    zaniteTool.increaseSpeed(modifiers, stack, tieredItem.getTier().getSpeed());
-                default -> null;
-            };
+        public static float handleZaniteToolAbility(ItemStack stack, float speed) {
+            if (stack.getItem() instanceof ZaniteTool zaniteTool) {
+                return zaniteTool.increaseSpeed(stack, speed);
+            }
+            return speed;
         }
 
         /**
@@ -297,8 +320,7 @@ public class AbilityHooks {
             if (debuffTools) {
                 if ((state.getBlock().getDescriptionId().startsWith("block.aether.") || state.is(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK)) && !state.is(AetherTags.Blocks.TREATED_AS_VANILLA_BLOCK)) {
                     if (!stack.isEmpty() && stack.isCorrectToolForDrops(state) && !stack.getItem().getDescriptionId().startsWith("item.aether.") && !stack.is(AetherTags.Items.TREATED_AS_AETHER_ITEM)) {
-//                        speed = (float) Math.max(Math.pow(speed, speed > 1.0 ? -0.5 : 1.5), 1.0);
-                        speed = 1.0F;
+                        speed = (float) Math.max(Math.pow(speed, speed > 1.0 ? -0.5 : 1.5), 1.0);
                     }
                 }
             }
