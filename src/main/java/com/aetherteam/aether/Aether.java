@@ -38,6 +38,7 @@ import com.aetherteam.aether.inventory.menu.AetherMenuTypes;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.combat.AetherArmorMaterials;
+import com.aetherteam.aether.item.combat.ZaniteSwordItem;
 import com.aetherteam.aether.item.combat.loot.FlamingSwordItem;
 import com.aetherteam.aether.item.combat.loot.HolySwordItem;
 import com.aetherteam.aether.item.combat.loot.PigSlayerItem;
@@ -521,6 +522,7 @@ public class Aether {
 
         bus.addListener(AetherCommands::registerCommands);
         bus.addListener(ReloadListeners::reloadListenerSetup);
+        bus.addListener(ZaniteSwordItem::onModifyAttributes);
         bus.addListener(FlamingSwordItem::onLivingDamage);
         bus.addListener(HolySwordItem::onLivingDamage);
         bus.addListener(PigSlayerItem::onLivingDamage);
