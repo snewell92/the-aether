@@ -194,34 +194,37 @@ public class EntityListener {
         if (player instanceof ServerPlayer serverPlayer) {
             CompoundTag playerTag = serverPlayer.server.getWorldData().getLoadedPlayerTag();
             if (playerTag != null) {
+                CompoundTag capsTag = null;
                 if (playerTag.contains("ForgeCaps")) {
-                    CompoundTag capsTag = playerTag.getCompound("ForgeCaps");
-                    if (capsTag.contains("curios:inventory")) {
-                        CompoundTag curiosInventoryTag = capsTag.getCompound("curios:inventory");
-                        if (curiosInventoryTag.contains("Curios")) {
-                            Tag curiosTag = curiosInventoryTag.get("Curios");
-                            if (curiosTag instanceof ListTag curiosListTag) {
-                                for (Tag tag : curiosListTag) {
-                                    if (tag instanceof CompoundTag compoundTag && compoundTag.contains("StacksHandler") && compoundTag.contains("Identifier")) {
-                                        CompoundTag stacksHandlerTag = compoundTag.getCompound("StacksHandler");
-                                        if (stacksHandlerTag.contains("Stacks")) {
-                                            CompoundTag stacksTag = stacksHandlerTag.getCompound("Stacks");
-                                            if (stacksTag.contains("Items")) {
-                                                Tag itemsTag = stacksTag.get("Items");
-                                                if (itemsTag instanceof ListTag listTag) {
-                                                    for (Tag itemTag : listTag) {
-                                                        if (itemTag instanceof CompoundTag itemCompoundTag) {
-                                                            if (itemCompoundTag.contains("id")) {
-                                                                Item item = BuiltInRegistries.ITEM.get(ResourceLocation.parse(itemCompoundTag.getString("id")));
-                                                                if (item != Items.AIR) {
-                                                                    ItemStack stack = new ItemStack(item);
-                                                                    AccessoriesCapability accessories = AccessoriesCapability.get(player);
-                                                                    if (accessories != null) {
-                                                                        Accessory accessory = AccessoriesAPI.getOrDefaultAccessory(stack);
-                                                                        Pair<SlotReference, EquipAction> equipReference = accessories.canEquipAccessory(stack, true);
-                                                                        if (accessory.canEquip(stack, equipReference.first())) {
-                                                                            equipReference.second().equipStack(stack.copy());
-                                                                        }
+                    capsTag = playerTag.getCompound("ForgeCaps");
+                } else if (playerTag.contains("neoforge:attachments")) {
+                    capsTag = playerTag.getCompound("neoforge:attachments");
+                }
+                if (capsTag != null && capsTag.contains("curios:inventory")) {
+                    CompoundTag curiosInventoryTag = capsTag.getCompound("curios:inventory");
+                    if (curiosInventoryTag.contains("Curios")) {
+                        Tag curiosTag = curiosInventoryTag.get("Curios");
+                        if (curiosTag instanceof ListTag curiosListTag) {
+                            for (Tag tag : curiosListTag) {
+                                if (tag instanceof CompoundTag compoundTag && compoundTag.contains("StacksHandler") && compoundTag.contains("Identifier")) {
+                                    CompoundTag stacksHandlerTag = compoundTag.getCompound("StacksHandler");
+                                    if (stacksHandlerTag.contains("Stacks")) {
+                                        CompoundTag stacksTag = stacksHandlerTag.getCompound("Stacks");
+                                        if (stacksTag.contains("Items")) {
+                                            Tag itemsTag = stacksTag.get("Items");
+                                            if (itemsTag instanceof ListTag listTag) {
+                                                for (Tag itemTag : listTag) {
+                                                    if (itemTag instanceof CompoundTag itemCompoundTag) {
+                                                        if (itemCompoundTag.contains("id")) {
+                                                            Item item = BuiltInRegistries.ITEM.get(ResourceLocation.parse(itemCompoundTag.getString("id")));
+                                                            if (item != Items.AIR) {
+                                                                ItemStack stack = new ItemStack(item);
+                                                                AccessoriesCapability accessories = AccessoriesCapability.get(player);
+                                                                if (accessories != null) {
+                                                                    Accessory accessory = AccessoriesAPI.getOrDefaultAccessory(stack);
+                                                                    Pair<SlotReference, EquipAction> equipReference = accessories.canEquipAccessory(stack, true);
+                                                                    if (accessory.canEquip(stack, equipReference.first())) {
+                                                                        equipReference.second().equipStack(stack.copy());
                                                                     }
                                                                 }
                                                             }
@@ -235,7 +238,6 @@ public class EntityListener {
                             }
                         }
                     }
-                    playerTag.remove("ForgeCaps");
                 }
             }
         }
