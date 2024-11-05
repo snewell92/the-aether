@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.ChestType;
 import net.minecraftforge.fml.ModList;
+import noobanidus.mods.lootr.config.ConfigManager;
 
 import java.util.Calendar;
 
@@ -30,6 +31,7 @@ import java.util.Calendar;
  */
 public class ChestMimicRenderer implements BlockEntityRenderer<ChestMimicBlockEntity> {
 	private static final Material LOOTR_MATERIAL = new Material(Sheets.CHEST_SHEET, new ResourceLocation("lootr", "chest"));
+	private static final Material OLD_LOOTR_MATERIAL = new Material(Sheets.CHEST_SHEET, new ResourceLocation("lootr", "old_chest"));
 	private final ModelPart lid;
 	private final ModelPart bottom;
 	private final ModelPart lock;
@@ -70,7 +72,13 @@ public class ChestMimicRenderer implements BlockEntityRenderer<ChestMimicBlockEn
 
 	private Material getMaterial(ChestMimicBlockEntity blockEntity) {
 		if (ModList.get().isLoaded("lootr")) {
-			return LOOTR_MATERIAL;
+			if (!ConfigManager.isVanillaTextures()) {
+				if (ConfigManager.isOldTextures()) {
+					return OLD_LOOTR_MATERIAL;
+				} else {
+					return LOOTR_MATERIAL;
+				}
+			}
 		}
 		return Sheets.chooseMaterial(blockEntity, ChestType.SINGLE, this.xmasTextures);
 	}
