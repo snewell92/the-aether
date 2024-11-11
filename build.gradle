@@ -206,7 +206,7 @@ curseforge {
         mainArtifact(tasks.jar) {
             displayName = "${project.mod_name} - ${version}"
             relations {
-                requiredDependency "owo"
+                requiredDependency "owo-lib"
                 embeddedLibrary "accessories"
                 embeddedLibrary "cumulus"
             }
