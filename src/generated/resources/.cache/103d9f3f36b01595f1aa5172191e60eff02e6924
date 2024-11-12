@@ -1,4 +1,4 @@
-// 1.21.1	2024-10-23T11:06:35.8264506	Registries
+// 1.21.1	2024-11-11T20:24:46.0161043	Registries
 2eb04213a52c1c17da768788f861402c3da130c7 data/aether/aether/moa_type/black.json
 0fec10b7ec3a92e56c0d6098e2e6459d24fb16e9 data/aether/aether/moa_type/blue.json
 ebef15be8334cbbe35897bedcfb54c3251f52d8a data/aether/aether/moa_type/white.json
@@ -13,8 +13,8 @@ cd680f6ec731971e2aefe28c7fb4c793a2923fa8 data/aether/damage_type/ice_crystal.jso
 f5deced101d2299e370ac067f29b5b355f28e634 data/aether/dimension/the_aether.json
 869fdcd531724cbe7e1bf35d214cccbcdf66b2ed data/aether/dimension_type/the_aether.json
 666763b3a06026378bbbfb33dfb38624dd838395 data/aether/jukebox_song/aether_tune.json
-dda7bc494585a045c46dabc92e3d09e649e75c6b data/aether/jukebox_song/ascending_dawn.json
-c7b67e2c36b05649a86015aafb3ddd8a192a9ab6 data/aether/jukebox_song/chinchilla.json
+71d2709558b69096d0381263f3e174ddd9af2eec data/aether/jukebox_song/ascending_dawn.json
+95fd3b6d324e842ccbbf93c5874ca25c4926d6b4 data/aether/jukebox_song/chinchilla.json
 c5fa58791e51a0c847c236cf1eda5acbaef64a70 data/aether/jukebox_song/high.json
 194c7c35c54c4b77294c06319b053c045362cfd1 data/aether/jukebox_song/klepto.json
 fd00a4a804d34d61fcad3050b1193c6df04575db data/aether/jukebox_song/sliders_wrath.json
