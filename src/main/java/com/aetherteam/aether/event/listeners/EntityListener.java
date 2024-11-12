@@ -223,8 +223,10 @@ public class EntityListener {
                                                                 if (accessories != null) {
                                                                     Accessory accessory = AccessoriesAPI.getOrDefaultAccessory(stack);
                                                                     Pair<SlotReference, EquipAction> equipReference = accessories.canEquipAccessory(stack, true);
-                                                                    if (accessory.canEquip(stack, equipReference.first())) {
-                                                                        equipReference.second().equipStack(stack.copy());
+                                                                    if (equipReference != null) {
+                                                                        if (accessory.canEquip(stack, equipReference.first())) {
+                                                                            equipReference.second().equipStack(stack.copy());
+                                                                        }
                                                                     }
                                                                 }
                                                             }
