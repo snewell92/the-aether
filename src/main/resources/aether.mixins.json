@@ -44,6 +44,7 @@
     "common.accessor.ZombifiedPiglinAccessor"
   ],
   "client": [
+    "client.AbstractClientPlayerMixin",
     "client.AdvancementToastMixin",
     "client.BossHealthOverlayMixin",
     "client.ConnectScreenMixin",
@@ -51,7 +52,6 @@
     "client.ElytraLayerMixin",
     "client.PanoramaRendererMixin",
     "client.PauseScreenMixin",
-    "client.PlayerSkinMixin",
     "client.SmithingScreenMixin",
     "client.TippableArrowRendererMixin",
     "client.TitleScreenMixin",
