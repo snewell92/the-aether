@@ -1,5 +1,6 @@
 package com.aetherteam.aether.attachment;
 
+import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import com.aetherteam.aether.network.packet.AetherTimeSyncPacket;
 import com.aetherteam.nitrogen.attachment.INBTSynchable;
@@ -55,6 +56,7 @@ public class AetherTimeAttachment implements INBTSynchable {
      * Used to increment the time in Aether levels.
      */
     public long tickTime(Level level) {
+        Aether.LOGGER.info(String.valueOf(this.isEternalDay()));
         long dayTime = level.getDayTime();
         if (this.isEternalDay()) {
             if (dayTime != 18000L) {
@@ -75,7 +77,7 @@ public class AetherTimeAttachment implements INBTSynchable {
      * Sends the eternal day value to the client dimension.
      */
     public void updateEternalDay(Level level) {
-        this.setSynched(-1, Direction.DIMENSION, "setEternalDay", this.isEternalDay, level.dimension());
+        this.setSynched(-1, Direction.DIMENSION, "setEternalDay", this.isEternalDay, level);
     }
 
     /**
