@@ -1,3 +1,16 @@
+# The Aether - NeoForge - 1.21.1-1.5.1-beta.3
+
+Fixes
+
+- Fix eternal day not functioning correctly.
+- Fix Silver Dungeons sometimes not generating with aerclouds.
+- Fix an incorrect tooltip for Gravitite Armor.
+- Fix first-person Shield of Repulsion rendering for players without slim arms.
+- Fix projectiles getting stuck on top of the Slider.
+- Fix glove modifiers being hardcoded to a specific slot.
+- Fix cape textures not being correctly separated per-player.
+- Fix Moa Skins not registering on the client.
+
 # The Aether - NeoForge - 1.21.1-1.5.1-beta.2
 
 Fixes
