@@ -10,6 +10,7 @@ Fixes
 - Fix glove modifiers being hardcoded to a specific slot.
 - Fix cape textures not being correctly separated per-player.
 - Fix Moa Skins not registering on the client.
+- Fix incorrect enchantment selection for Valkyrie Lance.
 
 # The Aether - NeoForge - 1.21.1-1.5.1-beta.2
 

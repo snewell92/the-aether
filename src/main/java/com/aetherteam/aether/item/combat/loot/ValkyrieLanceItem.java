@@ -24,7 +24,7 @@ public class ValkyrieLanceItem extends SwordItem implements ValkyrieTool {
 
     @Override
     public boolean isPrimaryItemFor(ItemStack stack, Holder<Enchantment> enchantment) {
-        return super.isPrimaryItemFor(stack, enchantment) && enchantment.is(Enchantments.SWEEPING_EDGE);
+        return super.isPrimaryItemFor(stack, enchantment) && !enchantment.is(Enchantments.SWEEPING_EDGE);
     }
 
     @Override
