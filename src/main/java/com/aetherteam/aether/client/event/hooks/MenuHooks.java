@@ -31,9 +31,9 @@ public class MenuHooks {
      * @see com.aetherteam.aether.client.event.listeners.MenuListener#onGuiOpenHighest(ScreenEvent.Opening)
      */
     public static void prepareCustomMenus(MenuHelper menuHelper) {
-        menuHelper.prepareMenu(AetherMenus.MINECRAFT_LEFT.get());
-        menuHelper.prepareMenu(AetherMenus.THE_AETHER.get());
-        menuHelper.prepareMenu(AetherMenus.THE_AETHER_LEFT.get());
+        menuHelper.prepareMenu(AetherMenus.MINECRAFT_LEFT);
+        menuHelper.prepareMenu(AetherMenus.THE_AETHER);
+        menuHelper.prepareMenu(AetherMenus.THE_AETHER_LEFT);
     }
 
     /**
