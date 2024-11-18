@@ -20,7 +20,7 @@ import java.util.UUID;
 
 public class GuiListener {
     /**
-     * @see AetherClient#eventSetup(IEventBus) 
+     * @see AetherClient#eventSetup(IEventBus)
      */
     public static void listen(IEventBus bus) {
         bus.addListener(GuiListener::onGuiInitialize);
@@ -37,15 +37,18 @@ public class GuiListener {
      */
     public static void onGuiInitialize(ScreenEvent.Init.Post event) {
         Screen screen = event.getScreen();
-        if (GuiHooks.isAccessoryButtonEnabled()) {
-            Tuple<Integer, Integer> offsets = AetherAccessoriesScreen.getButtonOffset(screen);
-            AccessoryButton inventoryAccessoryButton = GuiHooks.setupAccessoryButton(screen, offsets);
-            if (inventoryAccessoryButton != null) {
+
+        Tuple<Integer, Integer> offsets = AetherAccessoriesScreen.getButtonOffset(screen);
+        AccessoryButton inventoryAccessoryButton = GuiHooks.setupAccessoryButton(screen, offsets);
+        if (inventoryAccessoryButton != null) {
+            if (GuiHooks.isAccessoryButtonEnabled()) {
                 event.addListener(inventoryAccessoryButton);
             }
-        } else {
-            GridLayout layout = GuiHooks.setupPerksButtons(screen);
-            if (layout != null) {
+        }
+
+        GridLayout layout = GuiHooks.setupPerksButtons(screen);
+        if (layout != null) {
+            if (!GuiHooks.isAccessoryButtonEnabled()) {
                 layout.visitWidgets(event::addListener);
             }
         }
