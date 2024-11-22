@@ -45,13 +45,10 @@ public class AetherClient {
         bus.addListener(AetherClient::registerDimensionTransitionScreens);
         bus.addListener(AetherClient::loadComplete);
 
-        AetherMenus.MENUS.register(bus);
-
         AetherClient.eventSetup(bus);
     }
 
     public static void clientSetup(FMLClientSetupEvent event) {
-        disableCumulusButton();
         Reflection.initialize(CustomizationsOptions.class);
         AetherRenderers.registerAccessoryRenderers();
         event.enqueueWork(() -> {
@@ -62,18 +59,6 @@ public class AetherClient {
         });
         registerLoreOverrides();
         autoApplyPacks();
-    }
-
-    /**
-     * Disables the Cumulus menu switcher button, since Aether has its own for theme toggling.
-     */
-    public static void disableCumulusButton() {
-        if (AetherConfig.CLIENT.should_disable_cumulus_button.get()) {
-            CumulusConfig.CLIENT.enable_menu_list_button.set(false);
-            CumulusConfig.CLIENT.enable_menu_list_button.save();
-            AetherConfig.CLIENT.should_disable_cumulus_button.set(false);
-            AetherConfig.CLIENT.should_disable_cumulus_button.save();
-        }
     }
 
     public static void registerItemModelProperties() {
@@ -159,6 +144,7 @@ public class AetherClient {
         neoBus.addListener(AetherRenderers::addEntityLayers);
         neoBus.addListener(AetherRenderers::bakeModels);
         neoBus.addListener(AetherRenderEffects::registerRenderEffects);
+        neoBus.addListener(AetherMenus::registerMenus);
     }
 
     /**

@@ -75,7 +75,7 @@ configurations {
 
 dependencies {
     implementation "com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}"
-    implementation "com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}"
+//    implementation "com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}"
     implementation "io.wispforest:accessories-neoforge:${project.accessories_version}+${project.minecraft_version}"
 
     jarJar("com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}") {
@@ -107,7 +107,7 @@ dependencies {
     compileOnly "curse.maven:jade-324717:${project.jade_version}"
     compileOnly "curse.maven:lootr-361276:${project.lootr_version}"
 
-//    implementation fileTree(dir: 'libs', include: '*.jar')
+    implementation fileTree(dir: 'libs', include: '*.jar')
 
     compileOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${project.rei_version}"
     compileOnly "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}"

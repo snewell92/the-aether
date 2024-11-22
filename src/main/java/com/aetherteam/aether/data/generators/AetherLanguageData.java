@@ -691,11 +691,8 @@ public class AetherLanguageData extends AetherLanguageProvider {
 
 
         this.addMenuText("button.world_preview", "W");
-        this.addMenuText("button.theme", "T");
         this.addMenuText("button.quick_load", "Q");
 
-        this.addMenuText("minecraft", "Normal Theme");
-        this.addMenuText("aether", "Aether Theme");
         this.addMenuText("preview", "Toggle World");
         this.addMenuText("load", "Quick Load");
         this.addMenuText("server", "Official Aether Testing Server");
@@ -1329,14 +1326,10 @@ public class AetherLanguageData extends AetherLanguageProvider {
         this.addClientConfig("rendering", "colder_lightmap", "Removes warm-tinting of the lightmap in the Aether, giving the lighting a colder feel");
         this.addClientConfig("rendering", "green_sunset", "Enables a green-tinted sunrise and sunset in the Aether, similar to the original mod");
 
-        this.addClientConfig("gui", "enable_aether_menu", "Changes the vanilla Minecraft menu into the Aether menu");
-        this.addClientConfig("gui", "enable_aether_menu_button", "Adds a button to the top right of the main menu screen to toggle between the Aether and vanilla menu");
         this.addClientConfig("gui", "enable_world_preview", "Changes the background panorama into a preview of the latest played world");
         this.addClientConfig("gui", "enable_world_preview_button", "Adds a button to the top right of the main menu screen to toggle between the panorama and world preview");
         this.addClientConfig("gui", "enable_quick_load_button", "Adds a button to the top right of the main menu screen to allow quick loading into a world if the world preview is enabled");
         this.addClientConfig("gui", "menu_type_toggles_alignment", "Determines that menu elements will align left if the menu's world preview is active, if true, this overrides 'Align menu elements left'");
-        this.addClientConfig("gui", "default_aether_menu", "Determines the default Aether menu style to switch to with the menu theme button");
-        this.addClientConfig("gui", "default_minecraft_menu", "Determines the default Minecraft menu style to switch to with the menu theme button");
         this.addClientConfig("gui", "align_vanilla_menu_elements_left", "Aligns the elements of the vanilla menu to the left, only works if 'Align menu left with world preview' is set to false");
         this.addClientConfig("gui", "align_aether_menu_elements_left", "Aligns the elements of the Aether menu to the left, only works if 'Align menu left with world preview' is set to false");
         this.addClientConfig("gui", "enable_trivia", "Adds random trivia and tips to the bottom of loading screens");
