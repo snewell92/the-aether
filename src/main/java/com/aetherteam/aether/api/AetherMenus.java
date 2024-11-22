@@ -34,7 +34,6 @@ public class AetherMenus {
     public static final Menu THE_AETHER_LEFT = new Menu(THE_AETHER_ICON, THE_AETHER_LEFT_NAME, new AetherTitleScreen(true), new Menu.Properties().music(AetherTitleScreen.MENU).panorama(new CubeMap(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/gui/title/panorama/panorama"))));
 
     public static void registerMenus(RegisterMenuEvent event) {
-        Aether.LOGGER.info("AAAAAAAA");
         event.register(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "minecraft_left"), MINECRAFT_LEFT);
         event.register(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "the_aether"), THE_AETHER);
         event.register(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "the_aether_left"), THE_AETHER_LEFT);
