@@ -755,15 +755,15 @@ public class Slider extends PathfinderMob implements AetherBossMob<Slider>, Enem
      * Dependent on whether the Slider is in critical mode.
      */
     public float getVelocityIncrease() {
-        return this.isCritical() ? 0.045F - (this.getHealth() / 10000) : 0.035F - (this.getHealth() / 30000);
+        return Math.min(this.isCritical() ? 0.045F - (this.getHealth() / 10000) : 0.035F - (this.getHealth() / 30000), 400.0F / 30000);
     }
 
     /**
      * @return A {@link Boolean} for whether the Slider is in critical mode.
-     * The Slider goes critical when its health is at 100.
+     * The Slider goes critical when its health is at 1/4th.
      */
     public boolean isCritical() {
-        return this.getHealth() <= 100;
+        return this.getHealth() <= this.getMaxHealth() / 4.0F;
     }
 
     /**
