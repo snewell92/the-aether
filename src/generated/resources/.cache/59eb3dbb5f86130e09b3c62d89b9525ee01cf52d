@@ -1,4 +1,4 @@
-// 1.21.1	2024-10-23T11:06:35.3082374	Loot Tables
+// 1.21.1	2024-11-29T19:24:39.783046	Loot Tables
 6fd07ff3ea848d0b3b26cbf2b2d5c37dd5dc8b9a data/aether/loot_table/advancements/enter_aether.json
 a2337d3e3c05d3efabc3f907351bfe480fd09caa data/aether/loot_table/blocks/aerogel.json
 cb18a05b606bd3951085b27c35172c0e9867f0b0 data/aether/loot_table/blocks/aerogel_slab.json
@@ -158,13 +158,13 @@ a477d5b39cebaf9f393594c50382c567a20292df data/aether/loot_table/entities/aerbunn
 2e366c5eafe8cbd329b473226ffa9040153db016 data/aether/loot_table/entities/cockatrice.json
 5a148bdd76e3ec8685a473b5e1d315eb090443a6 data/aether/loot_table/entities/evil_whirlwind.json
 ed0a143569dfd5dff4d1d80e14dbeda5b28bd6f1 data/aether/loot_table/entities/fire_minion.json
-4ad51db9027ee2202f950908214d5027c687af80 data/aether/loot_table/entities/flying_cow.json
+af112e266403fb7b5ce3dc91de9c179f19e8065f data/aether/loot_table/entities/flying_cow.json
 0e14e06eda92297ffe0f2c5cba6699951cd30903 data/aether/loot_table/entities/golden_swet.json
 56dc4935f4a0a364ed796d972c932392ddc98343 data/aether/loot_table/entities/mimic.json
 c78c7bb7bfc1963ba667086ed4e9b56a14f7c4ad data/aether/loot_table/entities/moa.json
-45d1893ed8195ae9feb7a94612dd428cce9717f9 data/aether/loot_table/entities/phyg.json
+c8b0e1bdab223e976000d1fa6227bf7e48893677 data/aether/loot_table/entities/phyg.json
 a42bedb1e45e70ced870113be513f35aaefc2218 data/aether/loot_table/entities/sentry.json
-10dcb731fe5d45055abd313151afdc4653f35c03 data/aether/loot_table/entities/sheepuff.json
+1eee0952a4fc50c13940c72e6789cbefa44b36ea data/aether/loot_table/entities/sheepuff.json
 2a76865dcc0ee3a86c55bc83a9fd5db41e797e19 data/aether/loot_table/entities/sheepuff/black.json
 2a8e4ae230600e9e27cc0f9b25641b1098ddfb14 data/aether/loot_table/entities/sheepuff/blue.json
 c8cf54fe20198d699c40e2626a4a2f23809b1880 data/aether/loot_table/entities/sheepuff/brown.json
