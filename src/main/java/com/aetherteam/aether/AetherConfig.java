@@ -219,13 +219,10 @@ public class AetherConfig {
         public final ConfigValue<Boolean> colder_lightmap;
         public final ConfigValue<Boolean> green_sunset;
 
-        public final ConfigValue<Boolean> enable_aether_menu_button;
         public final ConfigValue<Boolean> enable_world_preview;
         public final ConfigValue<Boolean> enable_world_preview_button;
         public final ConfigValue<Boolean> enable_quick_load_button;
         public final ConfigValue<Boolean> menu_type_toggles_alignment;
-        public final ConfigValue<String> default_aether_menu;
-        public final ConfigValue<String> default_minecraft_menu;
         public final ConfigValue<Boolean> enable_trivia;
         public final ConfigValue<Boolean> enable_silver_hearts;
         public final ConfigValue<Boolean> disable_accessory_button;
@@ -273,10 +270,6 @@ public class AetherConfig {
             builder.pop();
 
             builder.push("Gui");
-            enable_aether_menu_button = builder
-                    .comment("Adds a button to the top right of the main menu screen to toggle between the Aether and vanilla menu")
-                    .translation("config.aether.client.gui.enable_aether_menu_button")
-                    .define("Enables Aether menu button", true);
             enable_world_preview = builder
                     .comment("Changes the background panorama into a preview of the latest played world")
                     .translation("config.aether.client.gui.enable_world_preview")
@@ -293,14 +286,6 @@ public class AetherConfig {
                     .comment("Determines that menu elements will align left if the menu's world preview is active, if true, this overrides 'Align menu elements left'")
                     .translation("config.aether.client.gui.menu_type_toggles_alignment")
                     .define("Align menu elements left with world preview", false);
-            default_aether_menu = builder
-                    .comment("Determines the default Aether menu style to switch to with the menu theme button")
-                    .translation("config.aether.client.gui.default_aether_menu")
-                    .define("Default Aether menu style", "aether:the_aether_left");
-            default_minecraft_menu = builder
-                    .comment("Determines the default Minecraft menu style to switch to with the menu theme button")
-                    .translation("config.aether.client.gui.default_minecraft_menu")
-                    .define("Default Minecraft menu style", "cumulus_menus:minecraft");
             enable_trivia = builder
                     .comment("Adds random trivia and tips to the bottom of loading screens")
                     .translation("config.aether.client.gui.enable_trivia")

@@ -25,18 +25,6 @@ import java.util.function.Predicate;
 
 public class MenuHooks {
     /**
-     * Prepares the Aether's registered custom menus in the order to check whether they should be displayed or not.
-     *
-     * @param menuHelper The {@link MenuHelper} for the menu system.
-     * @see com.aetherteam.aether.client.event.listeners.MenuListener#onGuiOpenHighest(ScreenEvent.Opening)
-     */
-    public static void prepareCustomMenus(MenuHelper menuHelper) {
-        menuHelper.prepareMenu(AetherMenus.MINECRAFT_LEFT);
-        menuHelper.prepareMenu(AetherMenus.THE_AETHER);
-        menuHelper.prepareMenu(AetherMenus.THE_AETHER_LEFT);
-    }
-
-    /**
      * If the current date is July 22nd, displays the Aether's anniversary splash text.
      *
      * @see com.aetherteam.aether.client.event.listeners.MenuListener#onGuiInitialize(ScreenEvent.Init.Post)
@@ -68,34 +56,6 @@ public class MenuHooks {
     }
 
     /**
-     * Sets up the button for toggling between the Aether and Minecraft menu themes.
-     *
-     * @param screen The current {@link Screen}.
-     * @return The created {@link Button}.
-     * @see com.aetherteam.aether.client.event.listeners.MenuListener#onGuiInitialize(ScreenEvent.Init.Post)
-     */
-    @Nullable
-    public static Button setupMenuSwitchButton(Screen screen) {
-        if (screen instanceof TitleScreen) {
-            DynamicMenuButton dynamicMenuButton = new DynamicMenuButton(new Button.Builder(Component.translatable("gui.aether.menu.button.theme"), (pressed) -> {
-                String menu = toggleBetweenMenus();
-                if (menu != null) {
-                    CumulusConfig.CLIENT.active_menu.set(menu);
-                    CumulusConfig.CLIENT.active_menu.save();
-                }
-                CumulusClient.MENU_HELPER.setShouldFade(true);
-                Minecraft.getInstance().setScreen(CumulusClient.MENU_HELPER.applyMenu(CumulusClient.MENU_HELPER.getActiveMenu()));
-                Minecraft.getInstance().getMusicManager().stopPlaying();
-                AetherMusicManager.stopPlaying();
-            }).bounds(screen.width - 24 - getButtonOffset(), 4, 20, 20).tooltip(Tooltip.create(Component.translatable(AetherMenuUtil.isAetherMenu() ? "gui.aether.menu.minecraft" : "gui.aether.menu.aether"))));
-            dynamicMenuButton.setOffsetConfigs(AetherConfig.CLIENT.enable_world_preview_button);
-            dynamicMenuButton.setDisplayConfigs(AetherConfig.CLIENT.enable_aether_menu_button);
-            return dynamicMenuButton;
-        }
-        return null;
-    }
-
-    /**
      * Sets up the button for quick-loading into a world when the world preview is active.
      *
      * @param screen The current {@link Screen}.
@@ -112,24 +72,11 @@ public class MenuHooks {
                 AetherMusicManager.stopPlaying();
                 Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1.0F));
             }).bounds(screen.width - 24 - getButtonOffset(), 4, 20, 20).tooltip(Tooltip.create(Component.translatable("gui.aether.menu.load"))));
-            dynamicMenuButton.setOffsetConfigs(AetherConfig.CLIENT.enable_world_preview_button, AetherConfig.CLIENT.enable_aether_menu_button);
+            dynamicMenuButton.setOffsetConfigs(AetherConfig.CLIENT.enable_world_preview_button);
             dynamicMenuButton.setDisplayConfigs(AetherConfig.CLIENT.enable_world_preview, AetherConfig.CLIENT.enable_quick_load_button);
             return dynamicMenuButton;
         }
         return null;
-    }
-
-    /**
-     * Toggles between Aether and Minecraft menus, with the default menus to toggle to determined by
-     * {@link AetherConfig.Client#default_minecraft_menu} and {@link AetherConfig.Client#default_aether_menu}.
-     *
-     * @return The {@link String} for the menu's ID.
-     */
-    private static String toggleBetweenMenus() {
-        if (AetherMenuUtil.isAetherMenu()) {
-            return AetherConfig.CLIENT.default_minecraft_menu.get();
-        }
-        return AetherConfig.CLIENT.default_aether_menu.get();
     }
 
     /**

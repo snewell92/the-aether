@@ -13,23 +13,14 @@ import net.neoforged.neoforge.client.event.ScreenEvent;
 
 public class MenuListener {
     /**
-     * @see AetherClient#eventSetup(IEventBus) 
+     * @see AetherClient#eventSetup(IEventBus)
      */
     public static void listen(IEventBus bus) {
-        bus.addListener(EventPriority.HIGHEST, MenuListener::onGuiOpenHighest);
         bus.addListener(MenuListener::onGuiInitialize);
     }
 
     /**
-     * @see MenuHooks#prepareCustomMenus(MenuHelper)
-     */
-    public static void onGuiOpenHighest(ScreenEvent.Opening event) {
-        MenuHooks.prepareCustomMenus(CumulusClient.MENU_HELPER);
-    }
-
-    /**
      * @see MenuHooks#setupToggleWorldButton(Screen)
-     * @see MenuHooks#setupMenuSwitchButton(Screen)
      * @see MenuHooks#setupQuickLoadButton(Screen)
      */
     public static void onGuiInitialize(ScreenEvent.Init.Post event) {
@@ -40,11 +31,6 @@ public class MenuListener {
             Button toggleWorldButton = MenuHooks.setupToggleWorldButton(screen);
             if (toggleWorldButton != null) {
                 event.addListener(toggleWorldButton);
-            }
-
-            Button menuSwitchButton = MenuHooks.setupMenuSwitchButton(screen);
-            if (menuSwitchButton != null) {
-                event.addListener(menuSwitchButton);
             }
 
             Button quickLoadButton = MenuHooks.setupQuickLoadButton(screen);
