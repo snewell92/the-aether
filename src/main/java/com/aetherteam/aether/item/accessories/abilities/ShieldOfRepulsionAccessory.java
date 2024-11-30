@@ -12,8 +12,8 @@ import net.minecraft.client.player.Input;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.ProjectileDeflection;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
@@ -68,10 +68,8 @@ public interface ShieldOfRepulsionAccessory {
     private static void handleDeflection(ProjectileImpactEvent event, Projectile projectile, LivingEntity impactedLiving, SlotEntryReference slotResult) {
         event.setCanceled(true);
         if (!impactedLiving.equals(projectile.getOwner())) {
-            projectile.setDeltaMovement(projectile.getDeltaMovement().scale(-0.25));
-            if (projectile instanceof AbstractHurtingProjectile damagingProjectileEntity) {
-                damagingProjectileEntity.accelerationPower *= -0.25;
-            }
+            projectile.deflect(ProjectileDeflection.REVERSE, impactedLiving, projectile.getOwner(), false);
+            projectile.setDeltaMovement(projectile.getDeltaMovement().scale(0.25));
             if (impactedLiving.level() instanceof ServerLevel serverLevel) {
                 slotResult.stack().hurtAndBreak(1, serverLevel, impactedLiving, (item) -> AccessoriesAPI.breakStack(slotResult.reference()));
             }
