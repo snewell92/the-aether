@@ -1326,9 +1326,6 @@ public class AetherLanguageData extends AetherLanguageProvider {
         this.addClientConfig("rendering", "colder_lightmap", "Removes warm-tinting of the lightmap in the Aether, giving the lighting a colder feel");
         this.addClientConfig("rendering", "green_sunset", "Enables a green-tinted sunrise and sunset in the Aether, similar to the original mod");
 
-        this.addClientConfig("gui", "enable_world_preview", "Changes the background panorama into a preview of the latest played world");
-        this.addClientConfig("gui", "enable_world_preview_button", "Adds a button to the top right of the main menu screen to toggle between the panorama and world preview");
-        this.addClientConfig("gui", "enable_quick_load_button", "Adds a button to the top right of the main menu screen to allow quick loading into a world if the world preview is enabled");
         this.addClientConfig("gui", "menu_type_toggles_alignment", "Determines that menu elements will align left if the menu's world preview is active, if true, this overrides 'Align menu elements left'");
         this.addClientConfig("gui", "align_vanilla_menu_elements_left", "Aligns the elements of the vanilla menu to the left, only works if 'Align menu left with world preview' is set to false");
         this.addClientConfig("gui", "align_aether_menu_elements_left", "Aligns the elements of the Aether menu to the left, only works if 'Align menu left with world preview' is set to false");
@@ -1355,7 +1352,6 @@ public class AetherLanguageData extends AetherLanguageProvider {
         this.addClientConfig("audio", "disable_vanilla_world_preview_menu_music", "Disables the menu music on the vanilla world preview menu, only works if 'Disables Aether music manager' is false");
         this.addClientConfig("audio", "disable_aether_world_preview_menu_music", "Disables the menu music on the Aether world preview menu, only works if 'Disables Aether music manager' is false");
 
-        this.addClientConfig("miscellaneous", "should_disable_cumulus_button", "Disables the Cumulus menu selection screen button on launch");
         this.addClientConfig("miscellaneous", "enable_server_button", "Enables a direct join button for the official server");
 
 

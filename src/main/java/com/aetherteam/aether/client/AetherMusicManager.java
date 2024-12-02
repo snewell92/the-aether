@@ -2,12 +2,10 @@ package com.aetherteam.aether.client;
 
 import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.AetherTags;
-import com.aetherteam.aether.api.AetherMenus;
 import com.aetherteam.aether.client.event.hooks.GuiHooks;
 import com.aetherteam.aether.client.sound.MusicSoundInstance;
 import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.mixin.mixins.client.accessor.BossHealthOverlayAccessor;
-import com.aetherteam.cumulus.api.Menus;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.LerpingBossEvent;
 import net.minecraft.client.gui.screens.WinScreen;
@@ -151,11 +149,7 @@ public class AetherMusicManager {
     @Nullable
     public static <T extends LivingEntity & AetherBossMob<?>> Music getSituationalMusic() {
         if (!(minecraft.screen instanceof WinScreen)) {
-            if (isAetherWorldPreviewEnabled()) { // Play Aether menu music when the Aether menu world preview is enabled.
-                return AetherMenus.THE_AETHER.music();
-            } else if (isVanillaWorldPreviewEnabled()) { // Play Minecraft menu music when the Minecraft menu world preview is enabled.
-                return Menus.MINECRAFT.music();
-            } else if (minecraft.player != null) { // Otherwise replace creative music with biome music in the Aether.
+            if (minecraft.player != null) { // Otherwise replace creative music with biome music in the Aether.
                 if (isAetherBossMusicActive()) {
                     T boss = getBossFromFight();
                     if (boss != null && boss.getHealth() > 0) {
@@ -197,27 +191,6 @@ public class AetherMusicManager {
             }
         }
         return null;
-    }
-
-    /**
-     * @return Whether the world preview is enabled for an Aether menu, and the music isn't cancelled through {@link AetherConfig.Client#disable_aether_world_preview_menu_music}.
-     */
-    public static boolean isAetherWorldPreviewEnabled() {
-        return AetherMenuUtil.isAetherMenu() && isWorldPreviewEnabled() && !AetherConfig.CLIENT.disable_aether_world_preview_menu_music.get();
-    }
-
-    /**
-     * @return Whether the world preview is enabled for a Minecraft menu, and the music isn't cancelled through {@link AetherConfig.Client#disable_vanilla_world_preview_menu_music}.
-     */
-    public static boolean isVanillaWorldPreviewEnabled() {
-        return AetherMenuUtil.isMinecraftMenu() && isWorldPreviewEnabled() && !AetherConfig.CLIENT.disable_vanilla_world_preview_menu_music.get();
-    }
-
-    /**
-     * @return Whether the world preview is enabled, according to {@link WorldDisplayHelper#isActive()}, and if the player exists.
-     */
-    public static boolean isWorldPreviewEnabled() {
-        return minecraft.player != null && WorldDisplayHelper.isActive();
     }
 
     /**

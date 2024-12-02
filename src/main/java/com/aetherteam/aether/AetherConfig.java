@@ -219,10 +219,6 @@ public class AetherConfig {
         public final ConfigValue<Boolean> colder_lightmap;
         public final ConfigValue<Boolean> green_sunset;
 
-        public final ConfigValue<Boolean> enable_world_preview;
-        public final ConfigValue<Boolean> enable_world_preview_button;
-        public final ConfigValue<Boolean> enable_quick_load_button;
-        public final ConfigValue<Boolean> menu_type_toggles_alignment;
         public final ConfigValue<Boolean> enable_trivia;
         public final ConfigValue<Boolean> enable_silver_hearts;
         public final ConfigValue<Boolean> disable_accessory_button;
@@ -246,7 +242,6 @@ public class AetherConfig {
         public final ConfigValue<Boolean> disable_vanilla_world_preview_menu_music;
         public final ConfigValue<Boolean> disable_aether_world_preview_menu_music;
 
-        public final ConfigValue<Boolean> should_disable_cumulus_button;
         public final ConfigValue<Boolean> enable_server_button;
 
         public Client(ModConfigSpec.Builder builder) {
@@ -270,22 +265,6 @@ public class AetherConfig {
             builder.pop();
 
             builder.push("Gui");
-            enable_world_preview = builder
-                    .comment("Changes the background panorama into a preview of the latest played world")
-                    .translation("config.aether.client.gui.enable_world_preview")
-                    .define("Enables world preview", false);
-            enable_world_preview_button = builder
-                    .comment("Adds a button to the top right of the main menu screen to toggle between the panorama and world preview")
-                    .translation("config.aether.client.gui.enable_world_preview_button")
-                    .define("Enables toggle world button", true);
-            enable_quick_load_button = builder
-                    .comment("Adds a button to the top right of the main menu screen to allow quick loading into a world if the world preview is enabled")
-                    .translation("config.aether.client.gui.enable_quick_load_button")
-                    .define("Enables quick load button", true);
-            menu_type_toggles_alignment = builder
-                    .comment("Determines that menu elements will align left if the menu's world preview is active, if true, this overrides 'Align menu elements left'")
-                    .translation("config.aether.client.gui.menu_type_toggles_alignment")
-                    .define("Align menu elements left with world preview", false);
             enable_trivia = builder
                     .comment("Adds random trivia and tips to the bottom of loading screens")
                     .translation("config.aether.client.gui.enable_trivia")
@@ -376,10 +355,6 @@ public class AetherConfig {
             builder.pop();
 
             builder.push("Miscellaneous");
-            should_disable_cumulus_button = builder
-                    .comment("Disables the Cumulus menu selection screen button on launch")
-                    .translation("config.aether.client.miscellaneous.should_disable_cumulus_button")
-                    .define("Disable Cumulus button", true);
             enable_server_button = builder
                     .comment("Enables a direct join button for the official server")
                     .translation("config.aether.client.miscellaneous.enable_server_button")

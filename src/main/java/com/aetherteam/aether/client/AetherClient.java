@@ -2,7 +2,6 @@ package com.aetherteam.aether.client;
 
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.AetherConfig;
-import com.aetherteam.aether.api.AetherMenus;
 import com.aetherteam.aether.client.event.listeners.*;
 import com.aetherteam.aether.client.event.listeners.abilities.AccessoryAbilityClientListener;
 import com.aetherteam.aether.client.event.listeners.capability.AetherPlayerClientListener;
@@ -19,7 +18,6 @@ import com.aetherteam.aether.inventory.menu.AetherMenuTypes;
 import com.aetherteam.aether.inventory.menu.LoreBookMenu;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.perk.CustomizationsOptions;
-import com.aetherteam.cumulus.CumulusConfig;
 import com.aetherteam.nitrogen.event.listeners.TooltipListeners;
 import com.google.common.reflect.Reflection;
 import net.minecraft.client.Minecraft;
@@ -132,7 +130,6 @@ public class AetherClient {
         GuiListener.listen(bus);
         LevelClientListener.listen(bus);
         MenuListener.listen(bus);
-        WorldPreviewListener.listen(bus);
 
         bus.addListener((ClientPlayerNetworkEvent.LoggingOut event) -> AbilityHooks.ToolHooks.resetDebuffToolsState());
 
@@ -148,7 +145,6 @@ public class AetherClient {
         neoBus.addListener(AetherRenderers::addEntityLayers);
         neoBus.addListener(AetherRenderers::bakeModels);
         neoBus.addListener(AetherRenderEffects::registerRenderEffects);
-        neoBus.addListener(AetherMenus::registerMenus);
     }
 
     /**
