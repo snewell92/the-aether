@@ -1,3 +1,23 @@
+# The Aether - NeoForge - 1.21.1-1.5.1-beta.4
+
+Changes
+
+- Update Cumulus to 2.0.0. This includes a rework to the menu registration and the movement of world preview system code from Aether to Cumulus. The Aether/Minecraft Theme button is also now replaced by Cumulus' Menu List button.
+
+Fixes
+
+- Fix Altar and Freezer output not working correctly.
+- Fix the eternal day check for sleeping in the Aether.
+- Fix Valkyrie Lance being enchantable with Sweeping Edge.
+- Fix meat drops from Aether animals not being cooked when killed with Fire Aspect in one hit.
+- Fix a desync with the Aether tool debuff config in multiplayer.
+- Fix an edge case with the Slider's movement math breaking down at high health numbers.
+- Fix Shield of Repulsion deflection not working properly.
+- Fix a potential edge case with the Shield of Repulsion overriding other mods cancellation of `ProjectileImpactEvent`.
+- Fix the optional Shield of Repulsion tooltip being incorrect.
+- Fix compatibility support for the Tips mod.
+- Fix some configs being checked earlier in mod-loading than necessary to make crash logs more clear in incompatibility edge cases.
+
 # The Aether - NeoForge - 1.21.1-1.5.1-beta.3
 
 Fixes
