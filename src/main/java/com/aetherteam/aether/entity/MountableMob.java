@@ -51,7 +51,6 @@ public interface MountableMob {
             Entity entity = vehicle.getControllingPassenger();
             if (vehicle.isVehicle() && entity instanceof LivingEntity passenger) {
                 if (vehicle.getPlayerJumped() && !vehicle.isMountJumping() && vehicle.canJump()) {
-                    vehicle.onJump(vehicle);
                     vehicle.setMountJumping(true);
                     vehicle.setPlayerJumped(false);
                 }
@@ -100,6 +99,7 @@ public interface MountableMob {
                     }
                 }
                 vehicle.hasImpulse = true;
+                vehicle.onJump(vehicle);
             }
             // Handles step height.
             AttributeInstance stepHeight = vehicle.getAttribute(Attributes.STEP_HEIGHT);
