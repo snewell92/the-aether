@@ -223,6 +223,10 @@ public class AetherBlockTagData extends BlockTagsProvider {
                 AetherBlocks.LOCKED_ANGELIC_STONE.get(),
                 AetherBlocks.LOCKED_LIGHT_ANGELIC_STONE.get());
         this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
+        this.tag(AetherTags.Blocks.ORES_IN_GROUND_HOLYSTONE).add(
+            AetherBlocks.AMBROSIUM_ORE.get(),
+            AetherBlocks.ZANITE_ORE.get(),
+            AetherBlocks.GRAVITITE_ORE.get());
 
         // Vanilla
         this.tag(BlockTags.WOODEN_STAIRS).add(AetherBlocks.SKYROOT_STAIRS.get());
