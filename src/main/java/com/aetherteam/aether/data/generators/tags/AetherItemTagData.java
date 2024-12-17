@@ -255,6 +255,7 @@ public class AetherItemTagData extends ItemTagsProvider {
 
         // Forge
         this.tag(Tags.Items.BOOKSHELVES).add(AetherBlocks.SKYROOT_BOOKSHELF.get().asItem());
+        this.tag(Tags.Items.BUCKETS).add(AetherItems.SKYROOT_POISON_BUCKET.get(), AetherItems.SKYROOT_REMEDY_BUCKET.get());
         this.tag(Tags.Items.BUCKETS_WATER).add(AetherItems.SKYROOT_WATER_BUCKET.get());
         this.tag(Tags.Items.BUCKETS_MILK).add(AetherItems.SKYROOT_MILK_BUCKET.get());
         this.tag(Tags.Items.BUCKETS_POWDER_SNOW).add(AetherItems.SKYROOT_POWDER_SNOW_BUCKET.get());
