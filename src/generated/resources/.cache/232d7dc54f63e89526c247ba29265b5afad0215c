@@ -1,4 +1,4 @@
-// 1.21.1	2024-12-17T15:42:09.9867395	Tags for minecraft:item mod id aether
+// 1.21.1	2024-12-17T19:44:41.0691555	Tags for minecraft:item mod id aether
 688ae9828b941d1f6760e1e9d3126fac6b99608c data/aether/tags/item/accepted_music_discs.json
 b4d12513c8c0ef5b1fa6237ca7a1f25799c219a2 data/aether/tags/item/accessories.json
 99e752628cab3cfc3a63a53fa4d137f0f7f03936 data/aether/tags/item/accessories_capes.json
@@ -78,6 +78,7 @@ c26f64255e81ace6a67fcf973a34043471ebff1d data/aether/tags/item/treasure_doorway_
 794ba2e4990dd4fa1823ea008d8b78437527dacd data/aether/tags/item/zanite_repairing.json
 01f606af3f58ae6c9742c9c6e927e787256e6274 data/c/tags/item/bookshelves.json
 b525649cbde7bfe133c303d8c44f9e08dd16db8c data/c/tags/item/buckets.json
+a10945c9998be4fba609a3c98c02bac848907862 data/c/tags/item/buckets/empty.json
 48429c058473ac929ef406e37aebe372845aaca5 data/c/tags/item/buckets/entity_water.json
 7305f7745e9b208e709d3dddc076c5303d49026b data/c/tags/item/buckets/milk.json
 2e2a8a99c236e6641ec35844af2eb02f870dd4ef data/c/tags/item/buckets/powder_snow.json
